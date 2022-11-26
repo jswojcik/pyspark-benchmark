@@ -166,7 +166,7 @@ def benchmarkBroadcastInnerJoins(df, jobLogger):
 def main():
     args = parseArguments()
 
-    spark = SparkSession.builder.appName(args.appName).getOrCreate()
+    spark = SparkSession.builder.master("local[*]").appName(args.appName).getOrCreate()
 
     Logger= spark._jvm.org.apache.log4j.Logger
     joblogger = Logger.getLogger(__name__)
